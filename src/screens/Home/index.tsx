@@ -14,7 +14,7 @@ const HomeScreen = () => {
           style={styles.searchButton}
           onPress={() => console.warn('Procurar botão clicado')}
         >
-          <Fontisto name="search" size={20} color="#f15454" />
+          <Fontisto name="search" size={20} color="#04afb9" />
           <Text style={styles.buttonText}>Onde você quer estacionar?</Text>
         </Pressable>
         <Text style={styles.title}>Estacione agora</Text>

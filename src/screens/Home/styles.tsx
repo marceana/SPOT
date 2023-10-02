@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get('screen').height,
     resizeMode: 'cover',
     justifyContent: 'center',
+    alignItems: 'center',
   },
   searchButton: {
     backgroundColor: '#fff',
@@ -23,11 +24,11 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   title: {
-    fontSize: 50,
+    fontSize: 40,
     fontWeight: 'bold',
     color: 'white',
-    width: '70%',
-    marginLeft: 25,
+    // width: '70%',
+    // marginLeft: 25,
   },
   button: {
     backgroundColor: '#fff',
@@ -35,14 +36,14 @@ const styles = StyleSheet.create({
     marginLeft: 25,
     marginTop: 20,
     height: 40,
-    borderRadius: 10,
+    borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },
   buttonText: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#20495d',
   },
 });
 
