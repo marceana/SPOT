@@ -2,24 +2,34 @@ import React from 'react';
 import { View, Image, Text } from 'react-native';
 import styles from './styles';
 
-const Post = () => {
+interface PostProps {
+  post: {
+    id: string;
+    image: string;
+    type: string;
+    title: string;
+    garage: number;
+    oldPrice: number;
+    price: number;
+    totalPrice: number;
+  };
+}
+
+const Post = (props: PostProps) => {
+  const post = props.post;
+
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={{ uri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/1.jpg' }}
-      />
-      <Text style={styles.garages}>2 carros</Text>
+      <Image style={styles.image} source={{ uri: post.image }} />
+      <Text style={styles.garages}>{post.garage} carros</Text>
       <Text style={styles.description} numberOfLines={2}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam nihil in repellat aut,
-        voluptas nesciunt maxime eligendi iusto nemo, alias illum dignissimos hic cumque aspernatur
-        accusantium ipsam aliquid tempora omnis.
+        {post.type}. {post.title}
       </Text>
       <Text style={styles.prices}>
-        <Text style={styles.oldPrice}>R$ 36</Text>
-        <Text style={styles.price}> R$ 36</Text>/ noite
+        <Text style={styles.oldPrice}>R$ {post.oldPrice}</Text>
+        <Text style={styles.price}> R$ {post.price}</Text>/noite
       </Text>
-      <Text style={styles.totalPrice}>R$ 230 total</Text>
+      <Text style={styles.totalPrice}>R$ {post.totalPrice}</Text>
     </View>
   );
 };
