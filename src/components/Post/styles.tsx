@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
   },
   price: {
     fontWeight: 'bold',
+    color: '#000',
   },
   totalPrice: {
     color: '#5b5b5b',
