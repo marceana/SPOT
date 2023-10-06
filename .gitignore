@@ -64,3 +64,7 @@ yarn-error.log
 
 # testing
 /coverage
+
+# dotenv environment variables file
+.env
+.env.test
