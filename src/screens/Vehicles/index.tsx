@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { View, Text, Pressable } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+
 import styles from './styles';
 import * as Base from '../../../styles/base';
-import { useNavigation } from '@react-navigation/native';
 
 const VehiclesScreen = () => {
   const [cars, setCars] = useState(0);
   const [motorcycles, setMotorcycles] = useState(0);
+
   const navigation = useNavigation();
+  const route = useRoute();
+
   return (
     <View style={{ justifyContent: 'space-between', height: Base.dimensions.fullHeight }}>
       <View>

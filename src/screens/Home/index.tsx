@@ -14,7 +14,7 @@ const HomeScreen = () => {
       >
         <Pressable
           style={styles.searchButton}
-          onPress={() => navigation.navigate('Location Search')}
+          onPress={() => navigation.navigate('LocationSearch' as never)}
         >
           <Fontisto
             name="search"

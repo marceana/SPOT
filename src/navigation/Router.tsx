@@ -5,12 +5,18 @@ import { NavigationContainer } from '@react-navigation/native';
 import VehiclesScreen from '../screens/Vehicles';
 import HomeTabNavigator from './HomeTabNavigator';
 
-const Stack = createStackNavigator();
+type RootStackParamList = {
+  Home: undefined;
+  LocationSearch: undefined;
+  VehiclesScreen: undefined;
+};
+
+const Stack = createStackNavigator<RootStackParamList>();
 
 const Router = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name={'Home'}
           component={HomeTabNavigator}
@@ -19,15 +25,14 @@ const Router = () => {
           }}
         />
         <Stack.Screen
-          name={'Location Search'}
+          name={'LocationSearch'}
           component={LocationSearchScreen}
           options={{
             headerShown: false,
           }}
         />
-
         <Stack.Screen
-          name={'Vehicles Screen'}
+          name={'VehiclesScreen'}
           component={VehiclesScreen}
           options={{
             headerShown: false,
