@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, Pressable } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
+import { RootStackParamList } from '../../navigation/Router';
 
 import styles from './styles';
 import * as Base from '../../../styles/base';
@@ -9,7 +11,7 @@ const VehiclesScreen = () => {
   const [cars, setCars] = useState(0);
   const [motorcycles, setMotorcycles] = useState(0);
 
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const route = useRoute();
 
   return (
@@ -59,6 +61,14 @@ const VehiclesScreen = () => {
         </View>
       </View>
       <Pressable
+        onPress={() =>
+          navigation.navigate('Home', {
+            screen: 'Explorar',
+            params: {
+              screen: 'SearchResults',
+            },
+          })
+        }
         style={{
           marginBottom: 30,
           backgroundColor: Base.colors.secondary,
