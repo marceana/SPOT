@@ -5,8 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import VehiclesScreen from '../screens/Vehicles';
 import HomeTabNavigator from './HomeTabNavigator';
 
-type RootStackParamList = {
-  Home: undefined;
+export type RootStackParamList = {
+  Home: { screen: string; params: { screen: string } } | undefined;
   LocationSearch: undefined;
   VehiclesScreen: undefined;
 };
