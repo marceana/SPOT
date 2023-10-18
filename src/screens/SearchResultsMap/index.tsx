@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
-import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import { View } from 'react-native';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import places from '../../../assets/data/feed';
 import CustomMarker from '../../components/CustomMarker';
 
@@ -21,7 +21,7 @@ const SearchResultsMap = () => {
         {places.map((place) => (
           <CustomMarker
             coordinate={place.coordinate}
-            price={place.newPrice}
+            price={place.price}
             isSelected={place.id === selectedPlaceId}
             onPress={() => setselectedPlaceId(place.id)}
           />
