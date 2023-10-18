@@ -12,6 +12,10 @@ interface PostProps {
     oldPrice: number;
     price: number;
     totalPrice: number;
+    coordinate: {
+      latitude: number;
+      longitude: number;
+    };
   };
 }
 
@@ -20,9 +24,15 @@ const Post = (props: PostProps) => {
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={{ uri: post.image }} />
+      <Image
+        style={styles.image}
+        source={{ uri: post.image }}
+      />
       <Text style={styles.garages}>{post.garage} carros</Text>
-      <Text style={styles.description} numberOfLines={2}>
+      <Text
+        style={styles.description}
+        numberOfLines={2}
+      >
         {post.type}. {post.title}
       </Text>
       <Text style={styles.prices}>
