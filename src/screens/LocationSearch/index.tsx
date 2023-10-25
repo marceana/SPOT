@@ -13,8 +13,6 @@ const LocationSearchScreen = () => {
       <GooglePlacesAutocomplete
         placeholder="Onde você quer estacionar?"
         onPress={(data, details = null) => {
-          // 'details' is provided when fetchDetails = true
-          console.log(data, details);
           navigation.navigate('VehiclesScreen', { viewport: details?.geometry.viewport });
         }}
         fetchDetails
