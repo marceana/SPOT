@@ -4,11 +4,13 @@ import LocationSearchScreen from '../screens/LocationSearch';
 import { NavigationContainer } from '@react-navigation/native';
 import VehiclesScreen from '../screens/Vehicles';
 import HomeTabNavigator from './HomeTabNavigator';
+import PostScreen from '../screens/PostScreen';
 
 export type RootStackParamList = {
   Home: { screen: string; params: { screen: string } } | undefined;
   LocationSearch: undefined;
   VehiclesScreen: undefined;
+  Post: { postId: string };
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -34,6 +36,13 @@ const Router = () => {
         <Stack.Screen
           name={'VehiclesScreen'}
           component={VehiclesScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name={'Post'}
+          component={PostScreen}
           options={{
             headerShown: false,
           }}

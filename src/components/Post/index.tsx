@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Image, Text } from 'react-native';
+import { Image, Text, Pressable } from 'react-native';
 import styles from './styles';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { RootStackParamList } from '../../navigation/Router';
 
 interface PostProps {
   post: {
@@ -22,8 +24,16 @@ interface PostProps {
 const Post = (props: PostProps) => {
   const post = props.post;
 
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const goToPostPage = () => {
+    navigation.navigate('Post', { postId: post.id });
+  };
+
   return (
-    <View style={styles.container}>
+    <Pressable
+      onPress={goToPostPage}
+      style={styles.container}
+    >
       <Image
         style={styles.image}
         source={{ uri: post.image }}
@@ -40,7 +50,7 @@ const Post = (props: PostProps) => {
         <Text style={styles.price}> R$ {post.price}</Text>/noite
       </Text>
       <Text style={styles.totalPrice}>R$ {post.totalPrice}</Text>
-    </View>
+    </Pressable>
   );
 };
 

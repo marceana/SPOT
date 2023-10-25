@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, Pressable } from 'react-native';
 import styles from './styles';
 import * as Base from '../../../styles/base';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { RootStackParamList } from '../../navigation/Router';
 
 interface PostProps {
   post: {
@@ -18,8 +20,16 @@ const Post = (props: PostProps) => {
   const post = props.post;
   const width = Base.dimensions.fullWidth;
 
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const goToPostPage = () => {
+    navigation.navigate('Post', { postId: post.id });
+  };
+
   return (
-    <View style={[styles.container, { width: width - 60 }]}>
+    <Pressable
+      onPress={goToPostPage}
+      style={[styles.container, { width: width - 60 }]}
+    >
       <View style={styles.innerContainer}>
         <Image
           style={styles.image}
@@ -38,7 +48,7 @@ const Post = (props: PostProps) => {
           </Text>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

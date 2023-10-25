@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import { Marker } from 'react-native-maps';
 
 type CustomMarkerProps = {
+  id: string;
   coordinate: {
     latitude: number;
     longitude: number;
@@ -12,11 +13,12 @@ type CustomMarkerProps = {
   isSelected: boolean;
 };
 
-const CustomMarker: React.FC<CustomMarkerProps> = (props) => {
-  const { coordinate, price, onPress, isSelected } = props;
+const CustomMarker = React.memo((props: CustomMarkerProps) => {
+  const { id, coordinate, price, onPress, isSelected } = props;
 
   return (
     <Marker
+      key={id}
       coordinate={coordinate}
       onPress={onPress}
     >
@@ -33,6 +35,6 @@ const CustomMarker: React.FC<CustomMarkerProps> = (props) => {
       </View>
     </Marker>
   );
-};
+});
 
 export default CustomMarker;
