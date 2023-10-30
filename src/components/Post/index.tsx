@@ -21,6 +21,8 @@ interface PostProps {
   };
 }
 
+const days = 7;
+
 const Post = (props: PostProps) => {
   const post = props.post;
 
@@ -49,7 +51,7 @@ const Post = (props: PostProps) => {
         <Text style={styles.oldPrice}>R$ {post.oldPrice}</Text>
         <Text style={styles.price}> R$ {post.price}</Text>/noite
       </Text>
-      <Text style={styles.totalPrice}>R$ {post.totalPrice}</Text>
+      <Text style={styles.totalPrice}>R$ {post.price * days}</Text>
     </Pressable>
   );
 };

@@ -14,6 +14,9 @@
     "categories": {
       "auth": {
         "spot64357c1a": {}
+      },
+      "api": {
+        "spot": {}
       }
     }
   }
