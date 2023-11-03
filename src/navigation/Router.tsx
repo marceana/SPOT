@@ -7,10 +7,14 @@ import HomeTabNavigator from './HomeTabNavigator';
 import PostScreen from '../screens/PostScreen';
 
 export type RootStackParamList = {
-  Home: { screen: string; params: { screen: string } } | undefined;
+  Home:
+    | { screen: string; params: { screen: string } }
+    | { screen: string; params: { screen: string; params: { vehicles: number } } }
+    | undefined;
   LocationSearch: undefined;
   VehiclesScreen: undefined;
   Post: { postId: string };
+  SearchResultsTab: { vehicles: number };
 };
 
 const Stack = createStackNavigator<RootStackParamList>();

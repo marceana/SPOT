@@ -14,10 +14,8 @@ interface PostProps {
     oldPrice: number;
     price: number;
     totalPrice: number;
-    coordinate: {
-      latitude: number;
-      longitude: number;
-    };
+    latitude: number;
+    longitude: number;
   };
 }
 

@@ -66,6 +66,9 @@ const VehiclesScreen = () => {
             screen: 'Explorar',
             params: {
               screen: 'SearchResults',
+              params: {
+                vehicles: cars + motorcycles,
+              },
             },
           })
         }

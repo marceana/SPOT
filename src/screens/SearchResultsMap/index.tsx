@@ -9,10 +9,28 @@ import { ViewToken } from 'react-native';
 
 import { API, graphqlOperation } from 'aws-amplify';
 import { listPosts } from '../../graphql/queries';
+interface Post {
+  id: string;
+  image: string;
+  type: string;
+  title: string;
+  garage: number;
+  oldPrice: number;
+  price: number;
+  totalPrice: number;
+  latitude: number;
+  longitude: number;
+}
 
-const SearchResultsMap = () => {
+interface SearchMapProps {
+  vehicles: number;
+}
+
+const SearchResultsMap = (props: SearchMapProps) => {
+  const { vehicles } = props;
+
   const [selectedPlaceId, setSelectedPlaceId] = useState('');
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
 
   const width = Base.dimensions.fullWidth;
 
@@ -30,8 +48,15 @@ const SearchResultsMap = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const postsResult = await API.graphql(graphqlOperation(listPosts));
-        console.log(postsResult);
+        const postsResult: any = await API.graphql(
+          graphqlOperation(listPosts, {
+            filter: {
+              maxVehicles: {
+                ge: vehicles,
+              },
+            },
+          })
+        );
         setPosts(postsResult.data.listPosts.items);
       } catch (e) {
         console.log(e);
@@ -39,6 +64,8 @@ const SearchResultsMap = () => {
     };
     fetchPosts();
   }, []);
+
+  console.log(posts);
 
   useEffect(() => {
     if (!selectedPlaceId || !flatList) {

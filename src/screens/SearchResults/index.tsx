@@ -4,13 +4,26 @@ import Post from '../../components/Post';
 import { API, graphqlOperation } from 'aws-amplify';
 import { listPosts } from '../../graphql/queries';
 
-const SearchResultsScreen = () => {
+interface SearchProps {
+  vehicles: number;
+}
+
+const SearchResultsScreen = (props: SearchProps) => {
   const [posts, setPosts] = useState([]);
+  const { vehicles } = props;
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const postsResult = await API.graphql(graphqlOperation(listPosts));
+        const postsResult: any = await API.graphql(
+          graphqlOperation(listPosts, {
+            filter: {
+              maxVehicles: {
+                ge: vehicles,
+              },
+            },
+          })
+        );
         console.log(postsResult);
         setPosts(postsResult.data.listPosts.items);
       } catch (e) {
