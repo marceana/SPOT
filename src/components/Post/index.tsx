@@ -10,12 +10,12 @@ interface PostProps {
     image: string;
     type: string;
     title: string;
-    garage: number;
     oldPrice: number;
     price: number;
     totalPrice: number;
     latitude: number;
     longitude: number;
+    maxVehicles: number;
   };
 }
 
@@ -38,7 +38,7 @@ const Post = (props: PostProps) => {
         style={styles.image}
         source={{ uri: post.image }}
       />
-      <Text style={styles.garages}>{post.garage} carros</Text>
+      <Text style={styles.garages}>{post.maxVehicles} veículos</Text>
       <Text
         style={styles.description}
         numberOfLines={2}

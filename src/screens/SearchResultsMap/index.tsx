@@ -6,9 +6,6 @@ import PostCarouselItem from '../../components/PostCarouselItem';
 import { FlatList } from 'react-native-gesture-handler';
 import * as Base from '../../../styles/base';
 import { ViewToken } from 'react-native';
-
-import { API, graphqlOperation } from 'aws-amplify';
-import { listPosts } from '../../graphql/queries';
 interface Post {
   id: string;
   image: string;
@@ -23,14 +20,13 @@ interface Post {
 }
 
 interface SearchMapProps {
-  vehicles: number;
+  posts: Array<Post>;
 }
 
 const SearchResultsMap = (props: SearchMapProps) => {
-  const { vehicles } = props;
+  const { posts } = props;
 
   const [selectedPlaceId, setSelectedPlaceId] = useState('');
-  const [posts, setPosts] = useState<Post[]>([]);
 
   const width = Base.dimensions.fullWidth;
 
@@ -44,26 +40,6 @@ const SearchResultsMap = (props: SearchMapProps) => {
       setSelectedPlaceId(selectedPlace.id);
     }
   });
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const postsResult: any = await API.graphql(
-          graphqlOperation(listPosts, {
-            filter: {
-              maxVehicles: {
-                ge: vehicles,
-              },
-            },
-          })
-        );
-        setPosts(postsResult.data.listPosts.items);
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    fetchPosts();
-  }, []);
 
   console.log(posts);
 

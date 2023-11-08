@@ -24,12 +24,6 @@ const HomeScreen = () => {
           <Text style={styles.buttonText}>Onde você quer estacionar?</Text>
         </Pressable>
         <Text style={styles.title}>Estacione agora</Text>
-        <Pressable
-          style={styles.button}
-          onPress={() => console.warn('Explorar botão clicado')}
-        >
-          <Text style={styles.buttonText}>Explorar vagas</Text>
-        </Pressable>
       </ImageBackground>
     </View>
   );

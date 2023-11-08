@@ -9,14 +9,11 @@ interface PostProps {
     type: string;
     title: string;
     description: string;
-    garage: number;
     oldPrice: number;
     price: number;
     totalPrice: number;
-    coordinate: {
-      latitude: number;
-      longitude: number;
-    };
+    latitude: number;
+    longitude: number;
   };
 }
 

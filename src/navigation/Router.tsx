@@ -9,12 +9,12 @@ import PostScreen from '../screens/PostScreen';
 export type RootStackParamList = {
   Home:
     | { screen: string; params: { screen: string } }
-    | { screen: string; params: { screen: string; params: { vehicles: number } } }
+    | { screen: string; params: { screen: string; params: { vehicles: number; viewport: any } } }
     | undefined;
   LocationSearch: undefined;
   VehiclesScreen: undefined;
   Post: { postId: string };
-  SearchResultsTab: { vehicles: number };
+  SearchResultsTab: { vehicles: number; viewport: any };
 };
 
 const Stack = createStackNavigator<RootStackParamList>();

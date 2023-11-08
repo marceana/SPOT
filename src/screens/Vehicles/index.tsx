@@ -8,7 +8,7 @@ import styles from './styles';
 import * as Base from '../../../styles/base';
 
 const VehiclesScreen = () => {
-  const [cars, setCars] = useState(0);
+  const [cars, setCars] = useState(1);
   const [motorcycles, setMotorcycles] = useState(0);
 
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
@@ -68,6 +68,7 @@ const VehiclesScreen = () => {
               screen: 'SearchResults',
               params: {
                 vehicles: cars + motorcycles,
+                viewport: route.params!.viewport,
               },
             },
           })
