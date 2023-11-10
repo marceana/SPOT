@@ -9,7 +9,7 @@ import posts from '../../../assets/data/feed';
 const PostScreen = () => {
   const route = useRoute<RouteProp<RootStackParamList, 'Post'>>();
 
-  const post = posts.find((post) => post.id === route.params.postId)!;
+  const post = route.params.post;
 
   return (
     <View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Text, ScrollView } from 'react-native';
+import { View, Image, Text, ScrollView, Pressable } from 'react-native';
 import styles from './styles';
 
 interface PostProps {
@@ -14,6 +14,7 @@ interface PostProps {
     totalPrice: number;
     latitude: number;
     longitude: number;
+    maxVehicles: number;
   };
 }
 
@@ -27,7 +28,7 @@ const PostScreen = (props: PostProps) => {
           style={styles.image}
           source={{ uri: post.image }}
         />
-        <Text style={styles.garages}>{post.garage} carros</Text>
+        <Text style={styles.garages}>{post.maxVehicles} carros</Text>
         <Text
           style={styles.description}
           numberOfLines={2}
@@ -38,9 +39,12 @@ const PostScreen = (props: PostProps) => {
           <Text style={styles.oldPrice}>R$ {post.oldPrice}</Text>
           <Text style={styles.price}> R$ {post.price}</Text>/noite
         </Text>
-        <Text style={styles.totalPrice}>R$ {post.totalPrice}</Text>
+        {/* <Text style={styles.totalPrice}>R$ {post.totalPrice}</Text> */}
 
         <Text style={styles.longDescription}>{post.description}</Text>
+        <Pressable style={styles.button}>
+          <Text style={styles.buttonText}>Reservar</Text>
+        </Pressable>
       </View>
     </ScrollView>
   );

@@ -26,7 +26,7 @@ const Post = (props: PostProps) => {
 
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const goToPostPage = () => {
-    navigation.navigate('Post', { postId: post.id });
+    navigation.navigate('Post', { post: post });
   };
 
   return (

@@ -38,6 +38,19 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     marginVertical: 20,
   },
+  button: {
+    backgroundColor: '#04afb9',
+    width: 100,
+    height: 40,
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'black',
+  },
 });
 
 export default styles;

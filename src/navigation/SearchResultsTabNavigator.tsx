@@ -35,7 +35,6 @@ const SearchResultsTabNavigator = () => {
             },
           })
         );
-        console.log(postsResult);
         setPosts(postsResult.data.listPosts.items);
       } catch (e) {
         console.log(e);
