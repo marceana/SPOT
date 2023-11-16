@@ -69,6 +69,9 @@ const VehiclesScreen = () => {
               params: {
                 vehicles: cars + motorcycles,
                 viewport: route.params!.viewport,
+                date: route.params!.date,
+                time: route.params!.time,
+                duration: route.params!.duration,
               },
             },
           })
