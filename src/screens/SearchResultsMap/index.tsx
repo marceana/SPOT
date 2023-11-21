@@ -20,7 +20,10 @@ interface Post {
 }
 
 interface SearchMapProps {
-  posts: Array<Post>;
+  posts: Array<any>;
+  date: string;
+  time: string;
+  duration: number;
 }
 
 const SearchResultsMap = (props: SearchMapProps) => {
@@ -96,6 +99,9 @@ const SearchResultsMap = (props: SearchMapProps) => {
             <PostCarouselItem
               key={item.id}
               post={item}
+              date={props.date}
+              time={props.time}
+              duration={props.duration}
             />
           )}
           horizontal

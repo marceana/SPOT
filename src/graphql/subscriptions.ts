@@ -21,6 +21,18 @@ export const onCreatePost = /* GraphQL */ `subscription OnCreatePost($filter: Mo
     maxVehicles
     latitude
     longitude
+    Reservation {
+      id
+      userId
+      postId
+      Date
+      Time
+      Duration
+      Total
+      createdAt
+      updatedAt
+      __typename
+    }
     createdAt
     updatedAt
     __typename
@@ -43,6 +55,18 @@ export const onUpdatePost = /* GraphQL */ `subscription OnUpdatePost($filter: Mo
     maxVehicles
     latitude
     longitude
+    Reservation {
+      id
+      userId
+      postId
+      Date
+      Time
+      Duration
+      Total
+      createdAt
+      updatedAt
+      __typename
+    }
     createdAt
     updatedAt
     __typename
@@ -65,6 +89,18 @@ export const onDeletePost = /* GraphQL */ `subscription OnDeletePost($filter: Mo
     maxVehicles
     latitude
     longitude
+    Reservation {
+      id
+      userId
+      postId
+      Date
+      Time
+      Duration
+      Total
+      createdAt
+      updatedAt
+      __typename
+    }
     createdAt
     updatedAt
     __typename
@@ -73,4 +109,64 @@ export const onDeletePost = /* GraphQL */ `subscription OnDeletePost($filter: Mo
 ` as GeneratedSubscription<
   APITypes.OnDeletePostSubscriptionVariables,
   APITypes.OnDeletePostSubscription
+>;
+export const onCreateReservation = /* GraphQL */ `subscription OnCreateReservation(
+  $filter: ModelSubscriptionReservationFilterInput
+) {
+  onCreateReservation(filter: $filter) {
+    id
+    userId
+    postId
+    Date
+    Time
+    Duration
+    Total
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateReservationSubscriptionVariables,
+  APITypes.OnCreateReservationSubscription
+>;
+export const onUpdateReservation = /* GraphQL */ `subscription OnUpdateReservation(
+  $filter: ModelSubscriptionReservationFilterInput
+) {
+  onUpdateReservation(filter: $filter) {
+    id
+    userId
+    postId
+    Date
+    Time
+    Duration
+    Total
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateReservationSubscriptionVariables,
+  APITypes.OnUpdateReservationSubscription
+>;
+export const onDeleteReservation = /* GraphQL */ `subscription OnDeleteReservation(
+  $filter: ModelSubscriptionReservationFilterInput
+) {
+  onDeleteReservation(filter: $filter) {
+    id
+    userId
+    postId
+    Date
+    Time
+    Duration
+    Total
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteReservationSubscriptionVariables,
+  APITypes.OnDeleteReservationSubscription
 >;

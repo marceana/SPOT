@@ -17,6 +17,9 @@ interface PostProps {
     longitude: number;
     maxVehicles: number;
   };
+  date: string;
+  time: string;
+  duration: number;
 }
 
 const days = 7;
@@ -26,7 +29,12 @@ const Post = (props: PostProps) => {
 
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const goToPostPage = () => {
-    navigation.navigate('Post', { post: post });
+    navigation.navigate('Post', {
+      post: post,
+      date: props.date,
+      time: props.time,
+      duration: props.duration,
+    });
   };
 
   return (

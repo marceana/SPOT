@@ -24,6 +24,18 @@ export const createPost = /* GraphQL */ `mutation CreatePost(
     maxVehicles
     latitude
     longitude
+    Reservation {
+      id
+      userId
+      postId
+      Date
+      Time
+      Duration
+      Total
+      createdAt
+      updatedAt
+      __typename
+    }
     createdAt
     updatedAt
     __typename
@@ -49,6 +61,18 @@ export const updatePost = /* GraphQL */ `mutation UpdatePost(
     maxVehicles
     latitude
     longitude
+    Reservation {
+      id
+      userId
+      postId
+      Date
+      Time
+      Duration
+      Total
+      createdAt
+      updatedAt
+      __typename
+    }
     createdAt
     updatedAt
     __typename
@@ -74,6 +98,18 @@ export const deletePost = /* GraphQL */ `mutation DeletePost(
     maxVehicles
     latitude
     longitude
+    Reservation {
+      id
+      userId
+      postId
+      Date
+      Time
+      Duration
+      Total
+      createdAt
+      updatedAt
+      __typename
+    }
     createdAt
     updatedAt
     __typename
@@ -82,4 +118,67 @@ export const deletePost = /* GraphQL */ `mutation DeletePost(
 ` as GeneratedMutation<
   APITypes.DeletePostMutationVariables,
   APITypes.DeletePostMutation
+>;
+export const createReservation = /* GraphQL */ `mutation CreateReservation(
+  $input: CreateReservationInput!
+  $condition: ModelReservationConditionInput
+) {
+  createReservation(input: $input, condition: $condition) {
+    id
+    userId
+    postId
+    Date
+    Time
+    Duration
+    Total
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateReservationMutationVariables,
+  APITypes.CreateReservationMutation
+>;
+export const updateReservation = /* GraphQL */ `mutation UpdateReservation(
+  $input: UpdateReservationInput!
+  $condition: ModelReservationConditionInput
+) {
+  updateReservation(input: $input, condition: $condition) {
+    id
+    userId
+    postId
+    Date
+    Time
+    Duration
+    Total
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateReservationMutationVariables,
+  APITypes.UpdateReservationMutation
+>;
+export const deleteReservation = /* GraphQL */ `mutation DeleteReservation(
+  $input: DeleteReservationInput!
+  $condition: ModelReservationConditionInput
+) {
+  deleteReservation(input: $input, condition: $condition) {
+    id
+    userId
+    postId
+    Date
+    Time
+    Duration
+    Total
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteReservationMutationVariables,
+  APITypes.DeleteReservationMutation
 >;

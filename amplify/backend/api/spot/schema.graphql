@@ -17,4 +17,16 @@ type Post @model {
 
   latitude: Float!
   longitude: Float!
+
+  Reservation: [Reservation]
+}
+
+type Reservation @model {
+  id: ID!
+  userId: String!
+  postId: String!
+  Date: AWSDateTime!
+  Time: AWSDateTime!
+  Duration: Int!
+  Total: Int!
 }

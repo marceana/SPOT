@@ -14,6 +14,9 @@ interface PostProps {
     garage: number;
     price: number;
   };
+  date: string;
+  time: string;
+  duration: number;
 }
 
 const Post = (props: PostProps) => {
@@ -22,7 +25,12 @@ const Post = (props: PostProps) => {
 
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const goToPostPage = () => {
-    navigation.navigate('Post', { postId: post.id });
+    navigation.navigate('Post', {
+      postId: post.id,
+      date: props.date,
+      time: props.time,
+      duration: props.duration,
+    });
   };
 
   return (

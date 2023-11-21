@@ -49,7 +49,20 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: 'black',
+    color: 'white',
+  },
+  successText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'green',
+    marginVertical: 10,
+  },
+
+  errorText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'red',
+    marginVertical: 10,
   },
 });
 

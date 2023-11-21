@@ -13,7 +13,7 @@ const Tab = createMaterialTopTabNavigator();
 const SearchResultsTabNavigator = () => {
   const route: RouteProp<RootStackParamList, 'SearchResultsTab'> = useRoute();
   const [posts, setPosts] = useState([]);
-  const { vehicles, viewport } = route.params;
+  const { vehicles, viewport, date, time, duration } = route.params;
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -52,8 +52,26 @@ const SearchResultsTabNavigator = () => {
         },
       }}
     >
-      <Tab.Screen name={'lista'}>{() => <SearchResults posts={posts} />}</Tab.Screen>
-      <Tab.Screen name={'mapa'}>{() => <SearchResultsMap posts={posts} />}</Tab.Screen>
+      <Tab.Screen name={'lista'}>
+        {() => (
+          <SearchResults
+            posts={posts}
+            date={date}
+            time={time}
+            duration={duration}
+          />
+        )}
+      </Tab.Screen>
+      <Tab.Screen name={'mapa'}>
+        {() => (
+          <SearchResultsMap
+            posts={posts}
+            date={date}
+            time={time}
+            duration={duration}
+          />
+        )}
+      </Tab.Screen>
     </Tab.Navigator>
   );
 };

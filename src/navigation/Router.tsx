@@ -20,7 +20,7 @@ export type RootStackParamList = {
     | undefined;
   LocationSearch: undefined;
   VehiclesScreen: { date: string; time: string; duration: number; viewport: any };
-  Post: { post: any };
+  Post: { post: any; date: string; time: string; duration: number };
   SearchResultsTab: {
     vehicles: number;
     viewport: any;

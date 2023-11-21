@@ -21,6 +21,18 @@ export const getPost = /* GraphQL */ `query GetPost($id: ID!) {
     maxVehicles
     latitude
     longitude
+    Reservation {
+      id
+      userId
+      postId
+      Date
+      Time
+      Duration
+      Total
+      createdAt
+      updatedAt
+      __typename
+    }
     createdAt
     updatedAt
     __typename
@@ -54,3 +66,47 @@ export const listPosts = /* GraphQL */ `query ListPosts(
   }
 }
 ` as GeneratedQuery<APITypes.ListPostsQueryVariables, APITypes.ListPostsQuery>;
+export const getReservation = /* GraphQL */ `query GetReservation($id: ID!) {
+  getReservation(id: $id) {
+    id
+    userId
+    postId
+    Date
+    Time
+    Duration
+    Total
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetReservationQueryVariables,
+  APITypes.GetReservationQuery
+>;
+export const listReservations = /* GraphQL */ `query ListReservations(
+  $filter: ModelReservationFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listReservations(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      userId
+      postId
+      Date
+      Time
+      Duration
+      Total
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListReservationsQueryVariables,
+  APITypes.ListReservationsQuery
+>;
